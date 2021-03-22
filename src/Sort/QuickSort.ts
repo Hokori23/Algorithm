@@ -1,26 +1,23 @@
-export default (arr: number[]) => {
+import { swap } from '../utils'
+export default (arr: number[]): number[] => {
 	if (arr.length <= 1) return arr
 	recur(arr, 0, arr.length - 1)
-  return arr
+	return arr
 }
-const swap = (arr: number[], idx1: number, idx2: number) => {
-  if (idx1 === idx2) return
-  arr[idx1] = arr[idx1] + arr[idx2]
-  arr[idx2] = arr[idx1] - arr[idx2]
-  arr[idx1] = arr[idx1] - arr[idx2]
+
+const partition = (arr: number[], l: number, r: number): number => {
+	const pivot = arr[r]
+	let store_idx = l
+	for (let i = l; i < r; i++) {
+		if (arr[i] < pivot) {
+			swap(arr, i, store_idx++)
+		}
+	}
+	swap(arr, store_idx, r)
+	return store_idx
 }
-const partition = (arr: number[], l: number, r: number) => {
-  const pivot = arr[r]
-  let store_idx = l
-  for (let i = l; i < r; i++) {
-    if (arr[i] < pivot) {
-      swap(arr, i, store_idx++)
-    }
-  }
-  swap(arr, store_idx, r)
-  return store_idx
-}
-const recur = (arr: number[], l: number, r: number) => {
+
+const recur = (arr: number[], l: number, r: number): void => {
 	if (l >= r) return
 	const q = partition(arr, l, r)
 	recur(arr, l, q - 1)

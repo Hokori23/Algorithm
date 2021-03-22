@@ -72,6 +72,6 @@
 		// "watch": true
 	},
   "include": [
-    "./src/**/test.ts"
+    "./src/**/*.ts"
   ],
 }
