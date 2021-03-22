@@ -1,10 +1,10 @@
-export default (arr: number[]) => {
+export default (arr: number[]): number[] => {
 	if (arr.length <= 1) return arr
 	recur(arr, 0, arr.length - 1)
 	return arr
 }
 
-const merge = (arr: number[], l: number, q: number, r: number) => {
+const merge = (arr: number[], l: number, q: number, r: number): void => {
 	let idx1 = l,
 		idx2 = q + 1
 	const temp = []
@@ -27,7 +27,7 @@ const merge = (arr: number[], l: number, q: number, r: number) => {
 		arr[i + l] = temp[i]
 	}
 }
-const recur = (arr: number[], l: number, r: number) => {
+const recur = (arr: number[], l: number, r: number): void => {
 	if (l >= r) return
 	const q = ~~((l + r) / 2)
 

@@ -1,5 +1,6 @@
 import InsertionSort from './InsertionSort'
 import BubbleSort from './BubbleSort'
+import SelectionSort from './SelectionSort'
 import MergeSort from './MergeSort'
 import QuickSort from './QuickSort'
 import { describe, it } from 'mocha'
@@ -27,6 +28,14 @@ describe('排序算法', () => {
 			assert.deepStrictEqual(
 				Array.from(v).sort((a, b) => a - b),
 				BubbleSort(Array.from(v))
+			)
+		})
+	})
+	it('#选择排序: SelectionSort(arr: number[])', () => {
+		testData.forEach((v) => {
+			assert.deepStrictEqual(
+				Array.from(v).sort((a, b) => a - b),
+				SelectionSort(Array.from(v))
 			)
 		})
 	})
