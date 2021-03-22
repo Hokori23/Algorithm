@@ -1,4 +1,5 @@
 import MergeSort from './MergeSort'
+import QuickSort from './QuickSort'
 import { describe, it } from 'mocha'
 import assert from 'assert'
 
@@ -16,6 +17,14 @@ describe('排序算法', () => {
 			assert.deepStrictEqual(
 				Array.from(v).sort((a, b) => a - b),
 				MergeSort(Array.from(v))
+			)
+		})
+	})
+	it('#快速排序: QuickSort(arr: number[])', () => {
+		testData.forEach((v) => {
+			assert.deepStrictEqual(
+				Array.from(v).sort((a, b) => a - b),
+				QuickSort(Array.from(v))
 			)
 		})
 	})
