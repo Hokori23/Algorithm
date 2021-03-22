@@ -1,3 +1,4 @@
+import InsertionSort from './InsertionSort'
 import MergeSort from './MergeSort'
 import QuickSort from './QuickSort'
 import { describe, it } from 'mocha'
@@ -12,6 +13,14 @@ const testData = [
 	[2, 2, 5]
 ]
 describe('排序算法', () => {
+	it('#插入排序: InsertionSort(arr: number[])', () => {
+		testData.forEach((v) => {
+			assert.deepStrictEqual(
+				Array.from(v).sort((a, b) => a - b),
+				InsertionSort(Array.from(v))
+			)
+		})
+	})
 	it('#归并排序: MergeSort(arr: number[])', () => {
 		testData.forEach((v) => {
 			assert.deepStrictEqual(
